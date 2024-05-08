@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="container">
+    
+    <div id="nav">
+        <h1 class="navDesc">Rock Paper Scissors 
+            <sub class="navDescSub">by A.Izzat</sub></h1>
+
+    </div>
+    
+    <div id="gameCard">
+        <button onclick="gameExecute('rock')"> <img src="Rock.png" class="imageDesign"> </button>
+       
+        <button onclick="gameExecute('paper')"> <img src="Paper.png" 
+            class="imageDesign" style="right: 0%;"> </button>
+
+        <button onclick="gameExecute('scissors')"> <img src="Scissors.png" 
+            class="imageDesign" style="width: 28%; left: 35%; top: 0%;"> </button>
+    </div>
+
+    <div id="scoreCard">
+        <h1 style="text-align: center; margin-top: 10%; color: whitesmoke;">Score</h1>
+        <h1 id="numbersCard"> 
+            <span id="pScoreDisp">0</span> - <span id="cScoreDisp">0</span> </h1>
+        <h1 id="winStatus"></h1>
+    </div>
+
+</div>
+    
+
+<script>
+    const choices = ["rock", "paper", "scissors"];
+    const numbersCard = document.getElementById("numbersCard");
+    const winStatus = document.getElementById("winStatus");
+    let pScore = 0;
+    let cScore = 0;
+
+function gameExecute(playerChoice){
+    const compChoice = choices[Math.floor(Math.random() * 3)];
+    let result = "";
+
+    if(playerChoice === compChoice){
+        result = "Mind Games!";
+    }
+    else{
+        switch(playerChoice){
+            case "rock":
+                result = (compChoice === "scissors") ? "You Win!" : "You Lose!";
+                break;
+            case "paper":
+                result = (compChoice === "rock") ? "You Win!" : "You Lose!";
+                break;
+            case "scissors":
+                result = (compChoice === "paper") ? "You Win!" : "You Lose!";
+                break;
+    }
+    }
+    
+    winStatus.textContent = result;
+
+   
+    switch(result){
+        case "Mind Games" : 
+            pScoreDisp.textContent = pScore;
+            cScoreDisp.textContent = cScore;
+            break;
+        case "You Win!":
+            pScore++;
+            pScoreDisp.textContent = pScore;
+            break;
+        case "You Lose!":
+            cScore++;
+            cScoreDisp.textContent = cScore;
+            break;
+        }
+    }
+</script>
+</body>
+
+</html>

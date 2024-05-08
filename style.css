@@ -1,0 +1,144 @@
+html, body{
+    width: 100%;
+    background-color: #CDE8E5;
+}
+
+.container{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 0.8fr 1fr;
+    grid-template-rows: 1em 3fr;
+    grid-template-areas: 
+    "nav nav nav"
+    "gameCard gameCard scoreCard";
+    width: 100%;
+    margin: none;
+    
+}
+
+
+#nav{
+    grid-area: nav;
+    text-align: center;
+}
+
+.navDesc{
+    padding: 15px 10px 15px 10px; 
+    background-color: #7AB2B2; 
+    margin-left: 30%; 
+    margin-right: 30%;  
+    border-radius: 15px; 
+    color: white; 
+    text-shadow: 2px 2px 5px yellow; 
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navDescSub{
+    font-size: 12px; 
+    margin-left: 10px; 
+    opacity: 0.4;
+    animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker{
+    50%{
+        opacity: 0.8;
+    }
+}
+
+
+#gameCard{
+    grid-area: gameCard;
+    position:relative;
+    background-color: #EEF7FF;
+    height:70%;
+    width: 70%;
+    align-self: center;
+    margin-left: 15%;
+    border-radius: 30px;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.imageDesign{
+    position: absolute;  
+    width: 45%; 
+    bottom: 0%; 
+    border-radius: 30px; 
+    transition: 0.3s ease-in;
+}
+
+.imageDesign:hover {
+    transform: scale(1.3);
+    position: absolute;
+    cursor: pointer;
+    
+    
+}
+
+#scoreCard{
+    grid-area: scoreCard;
+    background-color:#7AB2B2;
+    height: 50%;
+    width: 90%;
+    align-self: center;
+    border-radius: 30px;
+    margin-left: -50px;
+    
+}
+
+#numbersCard{
+    text-align: center; 
+    margin-top: 5%; 
+    color: #4D869C; 
+    font-size: 60px; 
+    background-color: #EEF7FF;
+    margin-left: 15%; 
+    margin-right: 15%;
+    height: 50px; 
+    padding-top: 15px; 
+    padding-bottom: 30px;
+    border-radius: 15px;
+}
+
+#winStatus{
+    text-align: center; 
+    margin-top: 10%; 
+    color: whitesmoke; 
+    font-size: 50px;
+}
+
+@media only screen and (max-width:767px){
+    .container{
+      grid-template-columns: 2fr;
+      grid-template-rows: 1fr 0.8fr;
+      grid-template-areas:
+        "gameCard"
+        "scoreCard"
+      
+    }
+
+    #gameCard{
+        width: 70%;
+        height:80%;
+        align-self: center;
+    }
+
+    #scoreCard{
+        width: 70%;
+        height:70%;
+        align-self: center;
+        margin-left: 15%;
+        margin-top: -10%;
+        
+    }
+  }
+  
